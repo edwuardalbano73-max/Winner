@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Football Manager</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">
+    <span class="brand-ball">⚽</span>
+    <strong>Football Manager</strong>
+  </div>
+
+  <button
+    id="menuButton"
+    class="mobile-menu"
+  >
+    ☰
+  </button>
+
+</header>
+
+
+<div class="layout">
+
+
+  <aside
+    id="sidebar"
+    class="sidebar"
+  >
+
+    <div class="sidebar-title">
+      MENÚ
+    </div>
+
+
+    <button
+      class="side-btn active"
+      data-page="dashboard"
+    >
+      🏠 Inicio
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="teams"
+    >
+      ⚽ Equipos
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="players"
+    >
+      👤 Jugadores
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="leagues"
+    >
+      🏆 Ligas
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="tournaments"
+    >
+      🏆 Torneos
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="matches"
+    >
+      📅 Partidos
+    </button>
+
+
+    <button
+      class="side-btn"
+      data-page="stats"
+    >
+      📊 Estadísticas
+    </button>
+
+
+  </aside>
+
+
+  <main class="main">
+
+
+    <!-- DASHBOARD -->
+
+    <section
+      id="page-dashboard"
+      class="page active"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            FOOTBALL MANAGER
+          </p>
+
+          <h1>
+            Bienvenido ⚽
+          </h1>
+
+          <p>
+            Crea y administra tu propio mundo del fútbol.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <span>⚽</span>
+
+          <div>
+
+            <small>Equipos</small>
+
+            <strong id="dashboardTeams">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>👤</span>
+
+          <div>
+
+            <small>Jugadores</small>
+
+            <strong id="dashboardPlayers">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>🏆</span>
+
+          <div>
+
+            <small>Ligas</small>
+
+            <strong id="dashboardLeagues">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>🏆</span>
+
+          <div>
+
+            <small>Torneos</small>
+
+            <strong id="dashboardTournaments">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>📅</span>
+
+          <div>
+
+            <small>Partidos</small>
+
+            <strong id="dashboardMatches">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="quick-actions">
+
+        <h2>
+          Acciones rápidas
+        </h2>
+
+
+        <div class="action-grid">
+
+          <button
+            class="action-card"
+            data-open="teams"
+          >
+            <span>⚽</span>
+            <strong>Crear equipo</strong>
+            <small>Agrega un nuevo club</small>
+          </button>
+
+
+          <button
+            class="action-card"
+            data-open="players"
+          >
+            <span>👤</span>
+            <strong>Crear jugador</strong>
+            <small>Agrega un futbolista</small>
+          </button>
+
+
+          <button
+            class="action-card"
+            data-open="leagues"
+          >
+            <span>🏆</span>
+            <strong>Crear liga</strong>
+            <small>Crea una competición</small>
+          </button>
+
+
+          <button
+            class="action-card"
+            data-open="tournaments"
+          >
+            <span>🏆</span>
+            <strong>Crear torneo</strong>
+            <small>Organiza un torneo</small>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- EQUIPOS -->
+
+    <section
+      id="page-teams"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            CLUBES
+          </p>
+
+          <h1>
+            Equipos
+          </h1>
+
+          <p>
+            Crea equipos completamente personalizados.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          id="newTeam"
+        >
+          + Crear equipo
+        </button>
+
+      </div>
+
+
+      <div
+        id="teamsList"
+        class="cards-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- JUGADORES -->
+
+    <section
+      id="page-players"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            FUTBOLISTAS
+          </p>
+
+          <h1>
+            Jugadores
+          </h1>
+
+          <p>
+            Administra los jugadores de tus equipos.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          id="newPlayer"
+        >
+          + Crear jugador
+        </button>
+
+      </div>
+
+
+      <div
+        id="playersList"
+        class="cards-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- LIGAS -->
+
+    <section
+      id="page-leagues"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            COMPETICIONES
+          </p>
+
+          <h1>
+            Ligas
+          </h1>
+
+          <p>
+            Crea ligas y controla sus clasificaciones.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          id="newLeague"
+        >
+          + Crear liga
+        </button>
+
+      </div>
+
+
+      <div
+        id="leaguesList"
+        class="cards-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- TORNEOS -->
+
+    <section
+      id="page-tournaments"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            COMPETICIONES
+          </p>
+
+          <h1>
+            Torneos
+          </h1>
+
+          <p>
+            Organiza torneos personalizados.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          id="newTournament"
+        >
+          + Crear torneo
+        </button>
+
+      </div>
+
+
+      <div
+        id="tournamentsList"
+        class="cards-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- PARTIDOS -->
+
+    <section
+      id="page-matches"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            CALENDARIO
+          </p>
+
+          <h1>
+            Partidos
+          </h1>
+
+          <p>
+            Crea partidos y registra resultados.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          id="newMatch"
+        >
+          + Crear partido
+        </button>
+
+      </div>
+
+
+      <div
+        id="matchesList"
+        class="match-list"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ESTADÍSTICAS -->
+
+    <section
+      id="page-stats"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            ESTADÍSTICAS
+          </p>
+
+          <h1>
+            Estadísticas
+          </h1>
+
+          <p>
+            Consulta los datos de tus competiciones.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats-section">
+
+        <h2>
+          🥅 Máximos goleadores
+        </h2>
+
+        <div
+          id="topScorers"
+          class="stats-list"
+        ></div>
+
+      </div>
+
+
+      <div class="stats-section">
+
+        <h2>
+          🏆 Equipos
+        </h2>
+
+        <div
+          id="teamStats"
+          class="stats-list"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+</div>
+
+
+
+<!-- MODAL -->
+
+<div
+  id="modal"
+  class="modal hidden"
+>
+
+  <div
+    id="modalBackdrop"
+    class="modal-backdrop"
+  ></div>
+
+
+  <div class="modal-box">
+
+    <button
+      id="closeModal"
+      class="close-modal"
+    >
+      ✕
+    </button>
+
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
